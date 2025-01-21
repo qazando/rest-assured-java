@@ -3,7 +3,7 @@ name: Run Rest Assured Tests
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -19,14 +19,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
 
       - name: Set up Maven
         run: |
